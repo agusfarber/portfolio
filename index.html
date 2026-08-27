@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agustín Farber — Desarrollador Full Stack</title>
+<meta name="description" id="metaDesc" content="Portfolio de Agustín Farber, desarrollador Full Stack. Proyectos, experiencia y contacto.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#08080F;
+    --bg-soft:#0D0D18;
+    --card:#121223;
+    --card-2:#161629;
+    --border:#242440;
+    --text:#EEEEF6;
+    --dim:#9797B0;
+    --dim-2:#6E6E88;
+    --violet:#9D7BFF;
+    --cyan:#3FD6F0;
+    --pink:#F4569B;
+    --grad: linear-gradient(90deg, var(--violet), var(--pink));
+    --maxw:1120px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);color:var(--text);
+    font-family:'Inter',sans-serif;font-size:16px;line-height:1.65;
+    overflow-x:hidden;
+  }
+  ::selection{background:var(--violet);color:#08080F;}
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+  .mono{font-family:'JetBrains Mono',monospace;}
+  h1,h2,h3{font-family:'Sora',sans-serif;}
+
+  .glow{position:absolute;border-radius:50%;filter:blur(90px);pointer-events:none;z-index:0;opacity:.35;}
+
+  header{position:fixed;top:0;left:0;right:0;z-index:50;transition:background .2s, border-color .2s;border-bottom:1px solid transparent;}
+  header.scrolled{background:rgba(8,8,15,0.85);backdrop-filter:blur(10px);border-color:var(--border);}
+  nav.wrap{display:flex;align-items:center;justify-content:space-between;height:70px;}
+  .brand{font-family:'Sora',sans-serif;font-weight:800;font-size:20px;letter-spacing:-.06em;line-height:1;}
+  .navlinks{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:100px;padding:6px;}
+  .navlinks a{font-size:13.5px;color:var(--dim);padding:8px 16px;border-radius:100px;transition:color .15s, background .15s;}
+  .navlinks a:hover{color:var(--text);background:rgba(255,255,255,0.05);}
+  .cv-btn{
+    font-size:13.5px;font-weight:600;color:var(--bg);background:var(--grad);
+    padding:10px 20px;border-radius:100px;box-shadow:0 0 24px rgba(157,123,255,.35);
+    transition:transform .15s, box-shadow .15s;
+  }
+  .cv-btn:hover{transform:translateY(-1px);box-shadow:0 0 32px rgba(157,123,255,.5);}
+  .nav-end{display:flex;align-items:center;gap:10px;}
+  .lang-btn{
+    display:inline-flex;align-items:center;gap:2px;border:1px solid var(--border);
+    background:rgba(255,255,255,.03);border-radius:100px;padding:4px;cursor:pointer;
+    font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--dim);
+  }
+  .lang-btn span{padding:6px 10px;border-radius:100px;transition:color .15s, background .15s, font-weight .15s;}
+  .lang-btn[data-lang="es"] [data-set="es"],
+  .lang-btn[data-lang="en"] [data-set="en"]{
+    color:#08080F;background:var(--grad);font-weight:600;
+  }
+  .navtoggle{display:none;background:none;border:1px solid var(--border);color:var(--text);width:38px;height:38px;border-radius:8px;font-size:18px;align-items:center;justify-content:center;}
+
+  #hero{position:relative;padding:168px 0 110px;overflow:hidden;}
+  .glow-hero-1{width:520px;height:520px;background:var(--violet);top:-160px;right:-120px;}
+  .glow-hero-2{width:420px;height:420px;background:var(--pink);bottom:-140px;left:-140px;opacity:.2;}
+  .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center;}
+  h1.hero-title{font-size:clamp(38px,5.4vw,58px);font-weight:800;line-height:1.08;letter-spacing:-.02em;}
+  .hero-title .grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .hero-sub{margin-top:20px;color:var(--dim);font-size:17px;max-width:52ch;}
+  .hero-ctas{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap;}
+  .btn{font-size:14.5px;font-weight:600;padding:14px 26px;border-radius:100px;display:inline-flex;align-items:center;gap:8px;transition:all .15s;}
+  .btn-primary{background:var(--grad);color:#08080F;box-shadow:0 0 28px rgba(157,123,255,.3);}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 0 36px rgba(157,123,255,.45);}
+  .btn-ghost{border:1px solid var(--border);color:var(--text);background:rgba(255,255,255,.02);}
+  .btn-ghost:hover{border-color:var(--dim-2);background:rgba(255,255,255,.05);}
+
+  .hero-photo-wrap{position:relative;display:flex;justify-content:center;}
+  .hero-photo{
+    width:280px;height:280px;border-radius:50%;position:relative;
+    background:linear-gradient(160deg, var(--card-2), var(--bg-soft));
+    border:1px solid var(--border);display:flex;align-items:center;justify-content:center;
+    box-shadow:0 0 0 1px rgba(255,255,255,.02), 0 30px 80px -20px rgba(157,123,255,.35);
+  }
+  .hero-photo::before{
+    content:'';position:absolute;inset:-3px;border-radius:50%;padding:3px;z-index:2;pointer-events:none;
+    background:var(--grad);-webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite:xor;mask-composite:exclude;opacity:.7;
+  }
+  .hero-photo img{width:100%;height:100%;object-fit:cover;border-radius:50%;position:relative;z-index:1;}
+
+  section{padding:110px 0;position:relative;}
+  .eyebrow{
+    display:inline-block;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--violet);margin-bottom:14px;
+  }
+  .sec-title{font-size:clamp(28px,3.6vw,40px);font-weight:800;letter-spacing:-.015em;}
+  .sec-head{text-align:center;max-width:600px;margin:0 auto 60px;}
+  .sec-head p{color:var(--dim);margin-top:14px;font-size:15.5px;}
+
+  .about{max-width:680px;margin:0 auto;text-align:center;}
+  .about .sec-title{margin-bottom:8px;}
+  .about p{color:var(--dim);font-size:16px;margin-top:16px;}
+  .about p strong{color:var(--text);font-weight:600;}
+  .about-facts{
+    display:flex;flex-wrap:wrap;justify-content:center;gap:22px 36px;
+    list-style:none;margin:36px 0 0;padding:0;
+  }
+  .about-facts li{display:flex;flex-direction:column;gap:4px;min-width:120px;}
+  .about-facts .k{font-size:11px;color:var(--dim-2);letter-spacing:.06em;text-transform:uppercase;}
+  .about-facts .v{font-size:13.5px;color:var(--text);font-weight:500;}
+
+  .exp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .exp-card{border:1px solid var(--border);background:var(--card);border-radius:18px;padding:26px;display:flex;flex-direction:column;gap:14px;transition:border-color .2s, transform .2s;}
+  .exp-card:hover{border-color:var(--violet);transform:translateY(-4px);}
+  .exp-date{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--dim-2);}
+  .exp-role{font-family:'Sora',sans-serif;font-weight:700;font-size:18px;line-height:1.3;}
+  .exp-co{font-size:13.5px;font-weight:600;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .exp-loc{font-size:12.5px;color:var(--dim-2);}
+  .exp-desc{color:var(--dim);font-size:14px;}
+
+  .feat-card{border:1px solid var(--border);background:linear-gradient(180deg, var(--card), var(--bg-soft));border-radius:24px;overflow:hidden;}
+  .feat-media{aspect-ratio:16/9;background:var(--card-2);border-bottom:1px solid var(--border);position:relative;overflow:hidden;}
+  .carousel-track{height:100%;}
+  .carousel-slide{position:absolute;inset:0;opacity:0;transition:opacity .35s ease;pointer-events:none;}
+  .carousel-slide.is-active{opacity:1;pointer-events:auto;}
+  .carousel-slide img{width:100%;height:100%;object-fit:cover;object-position:center top;}
+  .carousel-btn{
+    position:absolute;top:50%;transform:translateY(-50%);z-index:2;
+    width:40px;height:40px;border-radius:50%;border:1px solid var(--border);
+    background:rgba(8,8,15,.72);color:var(--text);font-size:22px;line-height:1;
+    display:flex;align-items:center;justify-content:center;cursor:pointer;
+    backdrop-filter:blur(8px);transition:background .15s, border-color .15s;
+  }
+  .carousel-btn:hover{background:rgba(18,18,35,.9);border-color:var(--violet);}
+  .carousel-btn.prev{left:14px;}
+  .carousel-btn.next{right:14px;}
+  .carousel-dots{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);z-index:2;display:flex;gap:8px;}
+  .carousel-dots button{
+    width:8px;height:8px;padding:0;border:0;border-radius:50%;cursor:pointer;
+    background:rgba(238,238,246,.35);transition:background .15s, transform .15s;
+  }
+  .carousel-dots button.is-active{background:var(--violet);transform:scale(1.2);}
+  .carousel.is-single .carousel-btn,
+  .carousel.is-single .carousel-dots{display:none;}
+  .feat-body{padding:44px;}
+  .feat-tag{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--cyan);letter-spacing:.06em;text-transform:uppercase;}
+  .feat-title{font-family:'Sora',sans-serif;font-weight:800;font-size:clamp(24px,3vw,32px);margin-top:10px;}
+  .feat-body p{color:var(--dim);margin-top:16px;font-size:15.5px;}
+  .feat-body ul{margin-top:16px;padding-left:20px;color:var(--dim);display:flex;flex-direction:column;gap:8px;font-size:14.5px;}
+  .feat-body ul li strong{color:var(--text);}
+  .feat-icons{display:flex;gap:8px;margin-top:26px;flex-wrap:wrap;}
+
+  .proj-grid{display:grid;grid-template-columns:1fr;gap:22px;margin-top:22px;}
+  .proj-card{border:1px solid var(--border);background:var(--card);border-radius:20px;overflow:hidden;display:grid;grid-template-columns:1fr 1.1fr;}
+  .proj-media{background:var(--card-2);display:flex;align-items:center;justify-content:center;min-height:220px;overflow:hidden;}
+  .proj-media img{width:100%;height:100%;object-fit:cover;min-height:220px;}
+  .proj-media .ph{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--dim-2);text-align:center;padding:0 20px;}
+  .proj-info{padding:32px;display:flex;flex-direction:column;gap:12px;justify-content:center;}
+  .proj-tag{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--pink);text-transform:uppercase;letter-spacing:.06em;}
+  .proj-title{font-family:'Sora',sans-serif;font-weight:700;font-size:20px;}
+  .proj-desc{color:var(--dim);font-size:14.5px;}
+  .proj-stack{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px;}
+  .chip{font-family:'JetBrains Mono',monospace;font-size:11px;border:1px solid var(--border);color:var(--dim);padding:5px 10px;border-radius:100px;}
+  .proj-links{display:flex;gap:16px;margin-top:6px;}
+  .proj-links a{font-size:13px;color:var(--cyan);border-bottom:1px solid transparent;transition:border-color .15s;}
+  .proj-links a:hover{border-color:var(--cyan);}
+
+  .skills-block{margin-bottom:44px;}
+  .skills-block:last-child{margin-bottom:0;}
+  .skills-block h3{font-size:14px;color:var(--text);text-align:center;font-weight:600;}
+  .skills-block .sub{text-align:center;color:var(--dim-2);font-size:13px;margin-top:4px;margin-bottom:26px;}
+  .icon-row{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;}
+  .icon-item{display:flex;flex-direction:column;align-items:center;gap:8px;width:78px;}
+  .icon-box{width:52px;height:52px;border-radius:14px;background:var(--card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;padding:11px;transition:border-color .15s, transform .15s;}
+  .icon-item:hover .icon-box{border-color:var(--violet);transform:translateY(-3px);}
+  .icon-box img{width:100%;height:100%;object-fit:contain;}
+  .icon-item span{font-size:11px;color:var(--dim);text-align:center;}
+
+  #contact{text-align:center;}
+  .contact-links{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-top:38px;}
+  .contact-card{
+    border:1px solid var(--border);background:var(--card);border-radius:16px;padding:18px 26px;
+    display:flex;align-items:center;gap:12px;min-width:220px;justify-content:flex-start;transition:border-color .15s, transform .15s;
+  }
+  .contact-card:hover{border-color:var(--violet);transform:translateY(-2px);}
+  .contact-card .ico{width:36px;height:36px;border-radius:10px;background:var(--card-2);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
+  .contact-card .txt{text-align:left;}
+  .contact-card .k{font-size:11px;color:var(--dim-2);text-transform:uppercase;letter-spacing:.04em;}
+  .contact-card .v{font-size:13.5px;font-weight:600;color:var(--text);}
+
+  footer{padding:40px 0 60px;text-align:center;}
+  .footer-row{color:var(--dim-2);font-size:12.5px;display:flex;flex-direction:column;gap:4px;}
+
+  @media (max-width:900px){
+    .navlinks{display:none;}
+    .navtoggle{display:flex;}
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-photo-wrap{order:-1;}
+    .exp-grid{grid-template-columns:1fr;}
+    .proj-card{grid-template-columns:1fr;}
+    .proj-media{min-height:180px;}
+  }
+  @media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto;} }
+  :focus-visible{outline:2px solid var(--violet);outline-offset:3px;}
+</style>
+</head>
+<body>
+
+<header id="siteHeader">
+  <nav class="wrap">
+    <a class="brand" href="#hero" data-i18n-aria="brand_aria" aria-label="Inicio">AF</a>
+    <div class="navlinks">
+      <a href="#about" data-i18n="nav_about">Sobre mí</a>
+      <a href="#experience" data-i18n="nav_experience">Experiencia</a>
+      <a href="#projects" data-i18n="nav_projects">Proyectos</a>
+      <a href="#skills" data-i18n="nav_skills">Skills</a>
+      <a href="#contact" data-i18n="nav_contact">Contacto</a>
+    </div>
+    <div class="nav-end">
+      <button class="lang-btn" id="langToggle" type="button" data-lang="es" data-i18n-aria="lang_aria" aria-label="Cambiar idioma">
+        <span data-set="es">ES</span>
+        <span data-set="en">EN</span>
+      </button>
+      <a class="cv-btn" href="./assets/cv/CV_ES-Agustin_Farber.pdf" download="CV_Agustin_Farber.pdf" data-i18n="cv_btn">Currículum ↓</a>
+      <button class="navtoggle" id="navToggle" data-i18n-aria="menu_aria" aria-label="Abrir menú">≡</button>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+  <section id="hero">
+    <div class="glow glow-hero-1"></div>
+    <div class="glow glow-hero-2"></div>
+    <div class="wrap hero-grid">
+      <div>
+        <h1 class="hero-title" data-i18n-html="hero_title">Hola, soy<br><span class="grad-text">Agustín Farber</span>.</h1>
+        <p class="hero-sub" data-i18n="hero_sub">Desarrollador Full Stack construyendo productos web y móviles de punta a punta — desde la arquitectura hasta la experiencia final del usuario.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="#projects" data-i18n="cta_projects">Ver proyectos</a>
+          <a class="btn btn-ghost" href="#contact" data-i18n="cta_talk">Hablemos</a>
+        </div>
+      </div>
+      <div class="hero-photo-wrap">
+        <div class="hero-photo">
+          <img src="./assets/img/foto-perfil.jpg" alt="Agustín Farber">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap about">
+      <span class="eyebrow" data-i18n="about_eyebrow">Sobre mí</span>
+      <h2 class="sec-title" data-i18n="about_title">Construyendo software con foco en resultados reales</h2>
+      <p data-i18n-html="about_p1">Soy desarrollador <strong>Full Stack</strong> con más de 2 años de experiencia construyendo aplicaciones web y móviles con PHP, JavaScript, React y Node.js, para clientes de Argentina, México, España y Estados Unidos.</p>
+      <p data-i18n-html="about_p2">Me adapto rápido a distintos stacks y metodologías ágiles, con foco en la calidad del código y la resolución de problemas reales — no solo demos. Estoy terminando <strong>Ingeniería en Sistemas de Información</strong> en la UTN, lo que me da una mirada más amplia sobre procesos y arquitectura, además del código.</p>
+      <p data-i18n="about_p3">Busco seguir creciendo dentro de un equipo de desarrollo donde pueda aportar mi experiencia y asumir nuevos desafíos técnicos.</p>
+      <ul class="about-facts">
+        <li><span class="k" data-i18n="fact_edu">Formación</span><span class="v" data-i18n="fact_edu_v">Ing. en Sistemas — UTN</span></li>
+        <li><span class="k" data-i18n="fact_grad">Graduación est.</span><span class="v">2026</span></li>
+        <li><span class="k" data-i18n="fact_lang">Idiomas</span><span class="v" data-i18n="fact_lang_v">Español · Inglés</span></li>
+        <li><span class="k" data-i18n="fact_cit">Ciudadanía</span><span class="v" data-i18n="fact_cit_v">Argentina · Austria</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow" data-i18n="exp_eyebrow">Trayectoria</span>
+        <h2 class="sec-title" data-i18n="exp_title">Experiencia y formación</h2>
+      </div>
+      <div class="exp-grid">
+
+        <div class="exp-card">
+          <div class="exp-date mono">JUN 2024 — JUN 2025</div>
+          <div><div class="exp-role" data-i18n="exp1_role">Desarrollador Full Stack</div><div class="exp-co">TINegocios</div></div>
+          <div class="exp-loc" data-i18n="exp1_loc">Remoto · México y España</div>
+          <div class="exp-desc" data-i18n="exp1_desc">Desarrollo de apps web y móviles para clientes extranjeros, bajo metodologías ágiles (Scrum/Jira), participando en todo el ciclo: requerimientos, implementación y seguimiento.</div>
+        </div>
+
+        <div class="exp-card">
+          <div class="exp-date mono">DIC 2024 — DIC 2025</div>
+          <div><div class="exp-role" data-i18n="exp2_role">Desarrollador Full Stack</div><div class="exp-co">DiarioSports</div></div>
+          <div class="exp-loc">Argentina</div>
+          <div class="exp-desc" data-i18n="exp2_desc">Refactorización y optimización de un sitio en WordPress: nuevas funcionalidades, mejoras de UX/UI y resolución de errores en frontend y backend.</div>
+        </div>
+
+        <div class="exp-card">
+          <div class="exp-date mono">DIC 2025 — ABR 2026</div>
+          <div><div class="exp-role">General Crew</div><div class="exp-co">McDonald's</div></div>
+          <div class="exp-loc" data-i18n="exp3_loc">Estados Unidos</div>
+          <div class="exp-desc" data-i18n="exp3_desc">Atención al cliente en un entorno 100% en inglés, dentro de un equipo multicultural — organización, rapidez y resolución bajo presión.</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow" data-i18n="proj_eyebrow">Mi trabajo</span>
+        <h2 class="sec-title" data-i18n="proj_title">Proyecto destacado</h2>
+      </div>
+
+      <div class="feat-card">
+        <div class="feat-media carousel is-single" id="alumbradoCarousel">
+          <div class="carousel-track">
+            <div class="carousel-slide is-active">
+              <img src="./assets/img/alumbrado/01-login.jpg" alt="Login de Gestión de Alumbrado Público" data-i18n-alt="alum_img1_alt">
+            </div>
+          </div>
+          <button class="carousel-btn prev" type="button" data-i18n-aria="carousel_prev" aria-label="Imagen anterior">‹</button>
+          <button class="carousel-btn next" type="button" data-i18n-aria="carousel_next" aria-label="Imagen siguiente">›</button>
+          <div class="carousel-dots"></div>
+        </div>
+        <div class="feat-body">
+          <span class="feat-tag" data-i18n="alum_tag">Proyecto final · Ingeniería en Sistemas (UTN)</span>
+          <h3 class="feat-title" data-i18n="alum_title">Gestión de Alumbrado Público — San Francisco, Córdoba</h3>
+          <p data-i18n="alum_p1">Como proyecto final de mi carrera, encaré un problema real de mi ciudad: la gestión del alumbrado público dependía de procesos manuales y dispersos, sin visibilidad clara de dónde estaban las luminarias ni su estado.</p>
+          <p data-i18n="alum_p2">Diseñé un sistema que centraliza ese proceso y lo ubica geográficamente, para que el municipio pueda gestionar reclamos, mantenimiento y estado de la red de forma más ágil y con datos reales.</p>
+          <ul>
+            <li data-i18n-html="alum_li1"><strong>Geolocalización:</strong> mapeo de luminarias y reclamos sobre un mapa interactivo.</li>
+            <li data-i18n-html="alum_li2"><strong>Centralización:</strong> un solo sistema para registrar, priorizar y hacer seguimiento de incidencias.</li>
+            <li data-i18n-html="alum_li3"><strong>Backend en CodeIgniter (PHP)</strong> con frontend en Vue.js, pensado para uso municipal real.</li>
+          </ul>
+          <div class="feat-icons">
+            <span class="chip">Vue.js</span>
+            <span class="chip">HTML</span>
+            <span class="chip">CSS</span>
+            <span class="chip">JavaScript</span>
+            <span class="chip">PHP</span>
+            <span class="chip">CodeIgniter</span>
+            <span class="chip">Google Maps</span>
+            <span class="chip">Mapbox</span>
+            <span class="chip">Bootstrap</span>
+            <span class="chip">MySQL</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-grid">
+        <div class="proj-card">
+          <div class="proj-media"><img src="./assets/img/caldero/01-hero.jpg" alt="El Caldero Chorreante"></div>
+          <div class="proj-info">
+            <span class="proj-tag" data-i18n="cald_tag">Proyecto final · Coderhouse</span>
+            <h3 class="proj-title">El Caldero Chorreante</h3>
+            <p class="proj-desc" data-i18n="cald_desc">Sitio web de un café-librería mágico ficticio inspirado en Harry Potter: carta, agenda de eventos, sección institucional y contacto. Proyecto final del curso de Desarrollo Web.</p>
+            <div class="proj-stack">
+              <span class="chip">HTML</span><span class="chip">SCSS</span><span class="chip">CSS</span><span class="chip">Vercel</span>
+            </div>
+            <div class="proj-links">
+              <a href="https://desarrollo-web-flex-proyecto-final.vercel.app" target="_blank" rel="noopener" data-i18n="cald_link">Sitio en producción ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow" data-i18n="skills_eyebrow">Stack</span>
+        <h2 class="sec-title" data-i18n="skills_title">Tecnologías y herramientas</h2>
+      </div>
+
+      <div class="skills-block">
+        <h3 data-i18n="skills_lang">Lenguajes</h3>
+        <div class="sub" data-i18n="skills_lang_sub">Las bases con las que construyo día a día.</div>
+        <div class="icon-row">
+          <div class="icon-item"><div class="icon-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"></div><span>HTML</span></div>
+          <div class="icon-item"><div class="icon-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"></div><span>CSS</span></div>
+          <div class="icon-item"><div class="icon-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"></div><span>JavaScript</span></div>
+          <div class="icon-item"><div class="icon-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"></div><span>TypeScript</span></div>
+          <div class="icon-item"><div class="icon-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg"></div><span>PHP</span></div>
+          <div class="icon-item"><div class="icon-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"></div><span>Python</span></div>
+          <div class="icon-item"><div class="icon-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg"></div><span>C++</span></div>
+        </div>
+      </div>
+
+      <div class="skills-block">
+        <h3 data-i18n="skills_fw">Frameworks y librerías</h3>
+        <div class="sub" data-i18n="skills_fw_sub">Con lo que armo el frontend y el backend.</div>
+        <div class="icon-row">
+          <div class="icon-item"><div class="icon-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"></div><span>React</span></div>
+          <div class="icon-item"><div class="icon-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"></div><span>React Native</span></div>
+          <div class="icon-item"><div class="icon-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg"></div><span>Vue.js</span></div>
+          <div class="icon-item"><div class="icon-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"></div><span>Node.js</span></div>
+          <div class="icon-item"><div class="icon-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg"></div><span>Laravel</span></div>
+          <div class="icon-item"><div class="icon-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/codeigniter/codeigniter-plain.svg"></div><span>CodeIgniter</span></div>
+          <div class="icon-item"><div class="icon-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-plain.svg"></div><span>WordPress</span></div>
+          <div class="icon-item"><div class="icon-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg"></div><span>Tailwind</span></div>
+          <div class="icon-item"><div class="icon-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg"></div><span>Bootstrap</span></div>
+          <div class="icon-item"><div class="icon-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vitejs/vitejs-original.svg" alt="Vite"></div><span>Vite</span></div>
+        </div>
+      </div>
+
+      <div class="skills-block">
+        <h3 data-i18n="skills_api">APIs y mapas</h3>
+        <div class="sub" data-i18n="skills_api_sub">Servicios con los que integro geolocalización y datos.</div>
+        <div class="icon-row">
+          <div class="icon-item"><div class="icon-box"><img src="https://cdn.simpleicons.org/googlemaps/4285F4" alt="Google Maps"></div><span>Google Maps</span></div>
+          <div class="icon-item"><div class="icon-box"><img src="https://cdn.simpleicons.org/mapbox/FFFFFF" alt="Mapbox"></div><span>Mapbox</span></div>
+        </div>
+      </div>
+
+      <div class="skills-block">
+        <h3 data-i18n="skills_db">Bases de datos</h3>
+        <div class="sub" data-i18n="skills_db_sub">Donde vive la información.</div>
+        <div class="icon-row">
+          <div class="icon-item"><div class="icon-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"></div><span>MySQL</span></div>
+          <div class="icon-item"><div class="icon-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"></div><span>PostgreSQL</span></div>
+          <div class="icon-item"><div class="icon-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg"></div><span>Firebase</span></div>
+        </div>
+      </div>
+
+      <div class="skills-block">
+        <h3 data-i18n="skills_tools">Herramientas</h3>
+        <div class="sub" data-i18n="skills_tools_sub">Lo que uso para trabajar en equipo y entregar.</div>
+        <div class="icon-row">
+          <div class="icon-item"><div class="icon-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"></div><span>Git</span></div>
+          <div class="icon-item"><div class="icon-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"></div><span>GitHub</span></div>
+          <div class="icon-item"><div class="icon-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg"></div><span>Jira</span></div>
+          <div class="icon-item"><div class="icon-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/trello/trello-plain.svg"></div><span>Trello</span></div>
+          <div class="icon-item"><div class="icon-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/slack/slack-original.svg"></div><span>Slack</span></div>
+          <div class="icon-item"><div class="icon-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg"></div><span>Figma</span></div>
+          <div class="icon-item"><div class="icon-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg"></div><span>Postman</span></div>
+          <div class="icon-item"><div class="icon-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg"></div><span>Canva</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="glow" style="width:600px;height:400px;background:var(--violet);left:50%;top:0;transform:translateX(-50%);opacity:.18;"></div>
+    <div class="wrap" style="position:relative;z-index:1;">
+      <span class="eyebrow" data-i18n="contact_eyebrow">Contacto</span>
+      <h2 class="sec-title" data-i18n="contact_title">Hablemos</h2>
+      <p style="color:var(--dim);max-width:52ch;margin:16px auto 0;" data-i18n="contact_p">Estoy buscando nuevos desafíos y disponible para nuevas oportunidades. Si tenés un proyecto en mente, escribime.</p>
+      <div class="contact-links">
+        <a class="contact-card" href="mailto:agusfarber@gmail.com">
+          <span class="ico">✉️</span><span class="txt"><span class="k" data-i18n="contact_email">Correo</span><br><span class="v">agusfarber@gmail.com</span></span>
+        </a>
+        <a class="contact-card" href="https://linkedin.com/in/agustín-farber" target="_blank" rel="noopener">
+          <span class="ico">in</span><span class="txt"><span class="k">LinkedIn</span><br><span class="v">agustín-farber</span></span>
+        </a>
+        <a class="contact-card" href="https://github.com/agusfarber" target="_blank" rel="noopener">
+          <span class="ico">⌥</span><span class="txt"><span class="k">GitHub</span><br><span class="v">agusfarber</span></span>
+        </a>
+        <a class="contact-card" href="tel:+5493492322894">
+          <span class="ico">📱</span><span class="txt"><span class="k" data-i18n="contact_phone">Teléfono</span><br><span class="v">+54 9 3492 32‑2894</span></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="wrap">
+    <div class="footer-row">
+      <span data-i18n="footer_copy">© 2026 Agustín Farber — Todos los derechos reservados.</span>
+      <span>Argentina · Austria</span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  const I18N = {
+    es: {
+      page_title: "Agustín Farber — Desarrollador Full Stack",
+      page_desc: "Portfolio de Agustín Farber, desarrollador Full Stack. Proyectos, experiencia y contacto.",
+      brand_aria: "Inicio",
+      lang_aria: "Cambiar idioma",
+      menu_aria: "Abrir menú",
+      nav_about: "Sobre mí",
+      nav_experience: "Experiencia",
+      nav_projects: "Proyectos",
+      nav_skills: "Skills",
+      nav_contact: "Contacto",
+      cv_btn: "Currículum ↓",
+      hero_title: "Hola, soy<br><span class=\"grad-text\">Agustín Farber</span>.",
+      hero_sub: "Desarrollador Full Stack construyendo productos web y móviles de punta a punta — desde la arquitectura hasta la experiencia final del usuario.",
+      cta_projects: "Ver proyectos",
+      cta_talk: "Hablemos",
+      about_eyebrow: "Sobre mí",
+      about_title: "Construyendo software con foco en resultados reales",
+      about_p1: "Soy desarrollador <strong>Full Stack</strong> con más de 2 años de experiencia construyendo aplicaciones web y móviles con PHP, JavaScript, React y Node.js, para clientes de Argentina, México, España y Estados Unidos.",
+      about_p2: "Me adapto rápido a distintos stacks y metodologías ágiles, con foco en la calidad del código y la resolución de problemas reales — no solo demos. Estoy terminando <strong>Ingeniería en Sistemas de Información</strong> en la UTN, lo que me da una mirada más amplia sobre procesos y arquitectura, además del código.",
+      about_p3: "Busco seguir creciendo dentro de un equipo de desarrollo donde pueda aportar mi experiencia y asumir nuevos desafíos técnicos.",
+      fact_edu: "Formación",
+      fact_edu_v: "Ing. en Sistemas — UTN",
+      fact_grad: "Graduación est.",
+      fact_lang: "Idiomas",
+      fact_lang_v: "Español · Inglés",
+      fact_cit: "Ciudadanía",
+      fact_cit_v: "Argentina · Austria",
+      exp_eyebrow: "Trayectoria",
+      exp_title: "Experiencia y formación",
+      exp1_role: "Desarrollador Full Stack",
+      exp1_loc: "México",
+      exp1_desc: "Desarrollo de apps web y móviles para clientes extranjeros, bajo metodologías ágiles (Scrum/Jira), participando en todo el ciclo: requerimientos, implementación y seguimiento.",
+      exp2_role: "Desarrollador Full Stack",
+      exp2_desc: "Refactorización y optimización de un sitio en WordPress: nuevas funcionalidades, mejoras de UX/UI y resolución de errores en frontend y backend.",
+      exp3_loc: "Estados Unidos",
+      exp3_desc: "Atención al cliente en un entorno 100% en inglés, dentro de un equipo multicultural — organización, rapidez y resolución bajo presión.",
+      proj_eyebrow: "Mi trabajo",
+      proj_title: "Proyecto destacado",
+      carousel_prev: "Imagen anterior",
+      carousel_next: "Imagen siguiente",
+      carousel_goto: "Ir a la imagen",
+      alum_img1_alt: "Login de Gestión de Alumbrado Público",
+      alum_tag: "Proyecto final · Ingeniería en Sistemas (UTN)",
+      alum_title: "Gestión de Alumbrado Público — San Francisco, Córdoba",
+      alum_p1: "Como proyecto final de mi carrera, encaré un problema real de mi ciudad: la gestión del alumbrado público dependía de procesos manuales y dispersos, sin visibilidad clara de dónde estaban las luminarias ni su estado.",
+      alum_p2: "Diseñé un sistema que centraliza ese proceso y lo ubica geográficamente, para que el municipio pueda gestionar reclamos, mantenimiento y estado de la red de forma más ágil y con datos reales.",
+      alum_li1: "<strong>Geolocalización:</strong> mapeo de luminarias y reclamos sobre un mapa interactivo.",
+      alum_li2: "<strong>Centralización:</strong> un solo sistema para registrar, priorizar y hacer seguimiento de incidencias.",
+      alum_li3: "<strong>Backend en CodeIgniter (PHP)</strong> con frontend en Vue.js, pensado para uso municipal real.",
+      cald_tag: "Proyecto final · Coderhouse",
+      cald_desc: "Sitio web de un café-librería mágico ficticio inspirado en Harry Potter: carta, agenda de eventos, sección institucional y contacto. Proyecto final del curso de Desarrollo Web.",
+      cald_link: "Sitio en producción ↗",
+      skills_eyebrow: "Stack",
+      skills_title: "Tecnologías y herramientas",
+      skills_lang: "Lenguajes",
+      skills_lang_sub: "Las bases con las que construyo día a día.",
+      skills_fw: "Frameworks y librerías",
+      skills_fw_sub: "Con lo que armo el frontend y el backend.",
+      skills_api: "APIs y mapas",
+      skills_api_sub: "Servicios con los que integro geolocalización y datos.",
+      skills_db: "Bases de datos",
+      skills_db_sub: "Donde vive la información.",
+      skills_tools: "Herramientas",
+      skills_tools_sub: "Lo que uso para trabajar en equipo y entregar.",
+      contact_eyebrow: "Contacto",
+      contact_title: "Hablemos",
+      contact_p: "Estoy buscando nuevos desafíos y disponible para nuevas oportunidades. Si tenés un proyecto en mente, escribime.",
+      contact_email: "Correo",
+      contact_phone: "Teléfono",
+      footer_copy: "© 2026 Agustín Farber — Todos los derechos reservados."
+    },
+    en: {
+      page_title: "Agustín Farber — Full Stack Developer",
+      page_desc: "Portfolio of Agustín Farber, Full Stack developer. Projects, experience, and contact.",
+      brand_aria: "Home",
+      lang_aria: "Change language",
+      menu_aria: "Open menu",
+      nav_about: "About",
+      nav_experience: "Experience",
+      nav_projects: "Projects",
+      nav_skills: "Skills",
+      nav_contact: "Contact",
+      cv_btn: "Resume ↓",
+      hero_title: "Hi, I'm<br><span class=\"grad-text\">Agustín Farber</span>.",
+      hero_sub: "Full Stack developer building web and mobile products end to end — from architecture to the final user experience.",
+      cta_projects: "View projects",
+      cta_talk: "Let's talk",
+      about_eyebrow: "About",
+      about_title: "Building software focused on real results",
+      about_p1: "I'm a <strong>Full Stack</strong> developer with 2+ years of experience building web and mobile apps with PHP, JavaScript, React, and Node.js, for clients in Argentina, Mexico, Spain, and the United States.",
+      about_p2: "I adapt quickly to different stacks and agile methods, with a focus on code quality and solving real problems — not just demos. I'm finishing a degree in <strong>Information Systems Engineering</strong> at UTN, which gives me a broader view of processes and architecture, beyond the code.",
+      about_p3: "I'm looking to keep growing inside a development team where I can contribute my experience and take on new technical challenges.",
+      fact_edu: "Education",
+      fact_edu_v: "Information Systems Eng. — UTN",
+      fact_grad: "Est. graduation",
+      fact_lang: "Languages",
+      fact_lang_v: "Spanish · English",
+      fact_cit: "Citizenship",
+      fact_cit_v: "Argentina · Austria",
+      exp_eyebrow: "Career",
+      exp_title: "Experience and education",
+      exp1_role: "Full Stack Developer",
+      exp1_loc: "Mexico",
+      exp1_desc: "Development of web and mobile apps for international clients, under agile methods (Scrum/Jira), taking part in the full cycle: requirements, implementation, and follow-up.",
+      exp2_role: "Full Stack Developer",
+      exp2_desc: "Refactoring and optimization of a WordPress site: new features, UX/UI improvements, and frontend and backend bug fixes.",
+      exp3_loc: "United States",
+      exp3_desc: "Customer service in a fully English-speaking environment, within a multicultural team — organization, speed, and problem-solving under pressure.",
+      proj_eyebrow: "My work",
+      proj_title: "Featured project",
+      carousel_prev: "Previous image",
+      carousel_next: "Next image",
+      carousel_goto: "Go to image",
+      alum_img1_alt: "Public Lighting Management login screen",
+      alum_tag: "Final project · Information Systems Engineering (UTN)",
+      alum_title: "Public Lighting Management — San Francisco, Córdoba",
+      alum_p1: "As my degree capstone, I took on a real problem in my city: public lighting management relied on manual, scattered processes, with no clear view of where the fixtures were or their status.",
+      alum_p2: "I designed a system that centralizes that process and places it on a map, so the municipality can handle reports, maintenance, and network status faster and with real data.",
+      alum_li1: "<strong>Geolocation:</strong> mapping of fixtures and reports on an interactive map.",
+      alum_li2: "<strong>Centralization:</strong> a single system to log, prioritize, and track incidents.",
+      alum_li3: "<strong>CodeIgniter (PHP) backend</strong> with a Vue.js frontend, built for real municipal use.",
+      cald_tag: "Final project · Coderhouse",
+      cald_desc: "Website for a fictional magic café-bookstore inspired by Harry Potter: menu, events calendar, about section, and contact. Final project for the Web Development course.",
+      cald_link: "Live site ↗",
+      skills_eyebrow: "Stack",
+      skills_title: "Technologies and tools",
+      skills_lang: "Languages",
+      skills_lang_sub: "The foundations I build with every day.",
+      skills_fw: "Frameworks and libraries",
+      skills_fw_sub: "What I use to build the frontend and backend.",
+      skills_api: "APIs and maps",
+      skills_api_sub: "Services I use to integrate geolocation and data.",
+      skills_db: "Databases",
+      skills_db_sub: "Where the information lives.",
+      skills_tools: "Tools",
+      skills_tools_sub: "What I use to work with a team and ship.",
+      contact_eyebrow: "Contact",
+      contact_title: "Let's talk",
+      contact_p: "I'm looking for new challenges and open to new opportunities. If you have a project in mind, get in touch.",
+      contact_email: "Email",
+      contact_phone: "Phone",
+      footer_copy: "© 2026 Agustín Farber — All rights reserved."
+    }
+  };
+
+  const langBtn = document.getElementById('langToggle');
+  let currentLang = localStorage.getItem('lang') === 'en' ? 'en' : 'es';
+
+  function applyLang(lang){
+    currentLang = lang;
+    const dict = I18N[lang];
+    document.documentElement.lang = lang;
+    document.title = dict.page_title;
+    document.getElementById('metaDesc').setAttribute('content', dict.page_desc);
+    langBtn.dataset.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const val = dict[el.dataset.i18n];
+      if (val != null) el.textContent = val;
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(el => {
+      const val = dict[el.dataset.i18nHtml];
+      if (val != null) el.innerHTML = val;
+    });
+    document.querySelectorAll('[data-i18n-aria]').forEach(el => {
+      const val = dict[el.dataset.i18nAria];
+      if (val != null) el.setAttribute('aria-label', val);
+    });
+    document.querySelectorAll('[data-i18n-alt]').forEach(el => {
+      const val = dict[el.dataset.i18nAlt];
+      if (val != null) el.setAttribute('alt', val);
+    });
+    document.querySelectorAll('.carousel-dots button').forEach((dot, n) => {
+      dot.setAttribute('aria-label', `${dict.carousel_goto} ${n + 1}`);
+    });
+    const cvBtn = document.querySelector('.cv-btn');
+    if (lang === 'en'){
+      cvBtn.href = './assets/cv/CV_EN-Agustin_Farber.pdf';
+      cvBtn.setAttribute('download', 'CV_Agustin_Farber_EN.pdf');
+    } else {
+      cvBtn.href = './assets/cv/CV_ES-Agustin_Farber.pdf';
+      cvBtn.setAttribute('download', 'CV_Agustin_Farber.pdf');
+    }
+    localStorage.setItem('lang', lang);
+  }
+
+  langBtn.addEventListener('click', (e) => {
+    const choice = e.target.closest('[data-set]');
+    applyLang(choice ? choice.dataset.set : (currentLang === 'es' ? 'en' : 'es'));
+  });
+  applyLang(currentLang);
+
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 20);
+  });
+  const toggle = document.getElementById('navToggle');
+  const links = document.querySelector('.navlinks');
+  toggle.addEventListener('click', () => {
+    const open = links.style.display === 'flex';
+    links.style.cssText = open ? '' : 'display:flex;position:fixed;top:70px;left:16px;right:16px;background:#0D0D18;flex-direction:column;border-radius:16px;padding:14px;gap:6px;border:1px solid #242440;';
+  });
+
+  function initCarousel(root){
+    const slides = [...root.querySelectorAll('.carousel-slide')];
+    const prev = root.querySelector('.carousel-btn.prev');
+    const next = root.querySelector('.carousel-btn.next');
+    const dotsWrap = root.querySelector('.carousel-dots');
+    if (slides.length < 2){
+      root.classList.add('is-single');
+      return;
+    }
+    root.classList.remove('is-single');
+    let i = slides.findIndex(s => s.classList.contains('is-active'));
+    if (i < 0) i = 0;
+    dotsWrap.innerHTML = slides.map((_, n) =>
+      `<button type="button" aria-label="${I18N[currentLang].carousel_goto} ${n + 1}"></button>`
+    ).join('');
+    const dots = [...dotsWrap.children];
+    const go = (n) => {
+      i = (n + slides.length) % slides.length;
+      slides.forEach((s, k) => s.classList.toggle('is-active', k === i));
+      dots.forEach((d, k) => d.classList.toggle('is-active', k === i));
+    };
+    go(i);
+    prev.addEventListener('click', () => go(i - 1));
+    next.addEventListener('click', () => go(i + 1));
+    dots.forEach((d, n) => d.addEventListener('click', () => go(n)));
+  }
+  document.querySelectorAll('.carousel').forEach(initCarousel);
+</script>
+
+</body>
+</html>
