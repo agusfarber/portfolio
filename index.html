@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Agustín Farber — Desarrollador Full Stack</title>
+<link rel="icon" href="./favicon.png" type="image/png">
 <meta name="description" id="metaDesc" content="Portfolio de Agustín Farber, desarrollador Full Stack. Proyectos, experiencia y contacto.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -92,7 +93,11 @@
     background:var(--grad);-webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
     -webkit-mask-composite:xor;mask-composite:exclude;opacity:.7;
   }
-  .hero-photo img{width:100%;height:100%;object-fit:cover;border-radius:50%;position:relative;z-index:1;}
+  .hero-photo{overflow:hidden;}
+  .hero-photo img{
+    position:absolute;z-index:1;width:164%;max-width:none;height:auto;
+    left:-28.72%;top:-60.05%;border-radius:0;
+  }
 
   section{padding:110px 0;position:relative;}
   .eyebrow{
@@ -123,6 +128,11 @@
   .exp-co{font-size:13.5px;font-weight:600;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
   .exp-loc{font-size:12.5px;color:var(--dim-2);}
   .exp-desc{color:var(--dim);font-size:14px;}
+  .block-title{font-family:'Sora',sans-serif;font-size:22px;font-weight:700;text-align:center;margin:72px 0 28px;}
+  .edu-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;}
+  .cert-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+  .cert-card{border:1px solid var(--border);background:var(--card);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:8px;}
+  .cert-card .exp-role{font-size:15px;}
 
   .feat-card{border:1px solid var(--border);background:linear-gradient(180deg, var(--card), var(--bg-soft));border-radius:24px;overflow:hidden;}
   .feat-media{aspect-ratio:16/9;background:var(--card-2);border-bottom:1px solid var(--border);position:relative;overflow:hidden;}
@@ -202,7 +212,7 @@
     .navtoggle{display:flex;}
     .hero-grid{grid-template-columns:1fr;}
     .hero-photo-wrap{order:-1;}
-    .exp-grid{grid-template-columns:1fr;}
+    .exp-grid,.edu-grid,.cert-grid{grid-template-columns:1fr;}
     .proj-card{grid-template-columns:1fr;}
     .proj-media{min-height:180px;}
   }
@@ -218,6 +228,7 @@
     <div class="navlinks">
       <a href="#about" data-i18n="nav_about">Sobre mí</a>
       <a href="#experience" data-i18n="nav_experience">Experiencia</a>
+      <a href="#formacion" data-i18n="nav_edu">Formación</a>
       <a href="#projects" data-i18n="nav_projects">Proyectos</a>
       <a href="#skills" data-i18n="nav_skills">Skills</a>
       <a href="#contact" data-i18n="nav_contact">Contacto</a>
@@ -249,7 +260,7 @@
       </div>
       <div class="hero-photo-wrap">
         <div class="hero-photo">
-          <img src="./assets/img/foto-perfil.jpg" alt="Agustín Farber">
+          <img src="./assets/img/foto-perfil.jpg" alt="Agustín Farber, de abrigo negro y gorro, mirando hacia arriba en una calle de la ciudad">
         </div>
       </div>
     </div>
@@ -282,24 +293,83 @@
         <div class="exp-card">
           <div class="exp-date mono">JUN 2024 — JUN 2025</div>
           <div><div class="exp-role" data-i18n="exp1_role">Desarrollador Full Stack</div><div class="exp-co">TINegocios</div></div>
-          <div class="exp-loc" data-i18n="exp1_loc">Remoto · México y España</div>
+          <div class="exp-loc" data-i18n="exp1_loc">México · En remoto</div>
           <div class="exp-desc" data-i18n="exp1_desc">Desarrollo de apps web y móviles para clientes extranjeros, bajo metodologías ágiles (Scrum/Jira), participando en todo el ciclo: requerimientos, implementación y seguimiento.</div>
         </div>
 
         <div class="exp-card">
           <div class="exp-date mono">DIC 2024 — DIC 2025</div>
           <div><div class="exp-role" data-i18n="exp2_role">Desarrollador Full Stack</div><div class="exp-co">DiarioSports</div></div>
-          <div class="exp-loc">Argentina</div>
+          <div class="exp-loc" data-i18n="exp2_loc">San Francisco, Córdoba · En remoto</div>
           <div class="exp-desc" data-i18n="exp2_desc">Refactorización y optimización de un sitio en WordPress: nuevas funcionalidades, mejoras de UX/UI y resolución de errores en frontend y backend.</div>
         </div>
 
         <div class="exp-card">
           <div class="exp-date mono">DIC 2025 — ABR 2026</div>
           <div><div class="exp-role">General Crew</div><div class="exp-co">McDonald's</div></div>
-          <div class="exp-loc" data-i18n="exp3_loc">Estados Unidos</div>
+          <div class="exp-loc" data-i18n="exp3_loc">Idaho Springs, Colorado · Presencial</div>
           <div class="exp-desc" data-i18n="exp3_desc">Atención al cliente en un entorno 100% en inglés, dentro de un equipo multicultural — organización, rapidez y resolución bajo presión.</div>
         </div>
 
+      </div>
+
+      <h3 class="block-title" id="formacion" data-i18n="edu_title">Formación</h3>
+      <div class="edu-grid">
+        <div class="exp-card">
+          <div class="exp-date mono">2016 — 2020</div>
+          <div><div class="exp-role" data-i18n="edu1_role">Bachiller en Economía y Administración</div><div class="exp-co" data-i18n="edu1_co">E.E.S. Orientada Particular Incorporada N.º 8095</div></div>
+        </div>
+        <div class="exp-card">
+          <div class="exp-date mono">2022 — 2025</div>
+          <div><div class="exp-role" data-i18n="edu2_role">Inglés</div><div class="exp-co">Sky English Institute</div></div>
+        </div>
+        <div class="exp-card">
+          <div class="exp-date mono" data-i18n="edu3_when">2026 — Actualidad</div>
+          <div><div class="exp-role" data-i18n="edu3_role">Desarrollo web y tecnología</div><div class="exp-co">Coderhouse</div></div>
+        </div>
+        <div class="exp-card">
+          <div class="exp-date mono">2021 — 2026</div>
+          <div><div class="exp-role" data-i18n="edu4_role">Ingeniería en Sistemas de Información</div><div class="exp-co">Universidad Tecnológica Nacional</div></div>
+        </div>
+      </div>
+
+      <h3 class="block-title" id="certificados" data-i18n="cert_title">Certificados</h3>
+      <div class="cert-grid">
+        <div class="cert-card">
+          <div class="exp-date mono" data-i18n="cert1_when">dic. 2020</div>
+          <div class="exp-role" data-i18n="cert1_title">Título secundario — Bachiller en Economía y Administración</div>
+          <div class="exp-co" data-i18n="edu1_co">E.E.S. Orientada Particular Incorporada N.º 8095</div>
+        </div>
+        <div class="cert-card">
+          <div class="exp-date mono" data-i18n="cert2_when">dic. 2022</div>
+          <div class="exp-role" data-i18n="cert2_title">Inglés Elementary Part 1</div>
+          <div class="exp-co">Sky English Institute</div>
+        </div>
+        <div class="cert-card">
+          <div class="exp-date mono" data-i18n="cert3_when">dic. 2023</div>
+          <div class="exp-role" data-i18n="cert3_title">Inglés Elementary Part 2</div>
+          <div class="exp-co">Sky English Institute</div>
+        </div>
+        <div class="cert-card">
+          <div class="exp-date mono" data-i18n="cert4_when">dic. 2024</div>
+          <div class="exp-role" data-i18n="cert4_title">Inglés Intermediate Part 1</div>
+          <div class="exp-co">Sky English Institute</div>
+        </div>
+        <div class="cert-card">
+          <div class="exp-date mono" data-i18n="cert5_when">dic. 2025</div>
+          <div class="exp-role" data-i18n="cert5_title">Inglés Intermediate</div>
+          <div class="exp-co">Sky English Institute</div>
+        </div>
+        <div class="cert-card">
+          <div class="exp-date mono" data-i18n="cert6_when">ago. 2026</div>
+          <div class="exp-role" data-i18n="cert6_title">Desarrollo Web</div>
+          <div class="exp-co">Coderhouse</div>
+        </div>
+        <div class="cert-card">
+          <div class="exp-date mono" data-i18n="cert7_when">oct. 2026</div>
+          <div class="exp-role" data-i18n="cert7_title">JavaScript</div>
+          <div class="exp-co">Coderhouse</div>
+        </div>
       </div>
     </div>
   </section>
@@ -358,7 +428,35 @@
               <span class="chip">HTML</span><span class="chip">SCSS</span><span class="chip">CSS</span><span class="chip">Vercel</span>
             </div>
             <div class="proj-links">
-              <a href="https://desarrollo-web-flex-proyecto-final.vercel.app" target="_blank" rel="noopener" data-i18n="cald_link">Sitio en producción ↗</a>
+              <a href="https://sitio-estatico-el-caldero-chorreante-agustin-farber.vercel.app/" target="_blank" rel="noopener" data-i18n="cald_link">Sitio en producción ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="proj-card">
+          <div class="proj-media"><img src="./assets/img/pedido/01.jpg" alt="Simulador de Pedido — El Caldero Chorreante" data-i18n-alt="pedido_alt"></div>
+          <div class="proj-info">
+            <span class="proj-tag" data-i18n="pedido_tag">Proyecto final · JavaScript</span>
+            <h3 class="proj-title">Simulador de Pedido — El Caldero Chorreante</h3>
+            <p class="proj-desc" data-i18n="pedido_desc">Simulador de pedido para un café-librería ficticio. Es la entrega final de JavaScript en Coderhouse: ver la carta, elegir productos, modificar cantidades, calcular el total y confirmar el pedido.</p>
+            <div class="proj-stack">
+              <span class="chip">JavaScript</span><span class="chip">HTML</span><span class="chip">CSS</span>
+            </div>
+            <div class="proj-links">
+              <a href="https://simulador-pedido-el-caldero-chorreante-agustin-farber.vercel.app/" target="_blank" rel="noopener" data-i18n="cald_link">Sitio en producción ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="proj-card">
+          <div class="proj-media"><img src="./assets/img/mesa/01.jpg" alt="Mesa de Show" data-i18n-alt="mesa_alt"></div>
+          <div class="proj-info">
+            <span class="proj-tag" data-i18n="mesa_tag">React</span>
+            <h3 class="proj-title">Mesa de Show</h3>
+            <p class="proj-desc" data-i18n="mesa_desc">Aplicación web para armar el set de un recital antes de subir al escenario. Ordenás los temas, la app suma el tiempo del venue, marca los saltos largos de tonalidad y dibuja la curva de energía.</p>
+            <div class="proj-stack">
+              <span class="chip">React</span><span class="chip">JavaScript</span>
+            </div>
+            <div class="proj-links">
+              <a href="https://mesa-de-show-agustin-farber.vercel.app/" target="_blank" rel="noopener" data-i18n="cald_link">Sitio en producción ↗</a>
             </div>
           </div>
         </div>
@@ -483,6 +581,7 @@
       menu_aria: "Abrir menú",
       nav_about: "Sobre mí",
       nav_experience: "Experiencia",
+      nav_edu: "Formación",
       nav_projects: "Proyectos",
       nav_skills: "Skills",
       nav_contact: "Contacto",
@@ -506,11 +605,12 @@
       exp_eyebrow: "Trayectoria",
       exp_title: "Experiencia y formación",
       exp1_role: "Desarrollador Full Stack",
-      exp1_loc: "México",
+      exp1_loc: "México · En remoto",
+      exp2_loc: "San Francisco, Córdoba · En remoto",
       exp1_desc: "Desarrollo de apps web y móviles para clientes extranjeros, bajo metodologías ágiles (Scrum/Jira), participando en todo el ciclo: requerimientos, implementación y seguimiento.",
       exp2_role: "Desarrollador Full Stack",
       exp2_desc: "Refactorización y optimización de un sitio en WordPress: nuevas funcionalidades, mejoras de UX/UI y resolución de errores en frontend y backend.",
-      exp3_loc: "Estados Unidos",
+      exp3_loc: "Idaho Springs, Colorado · Presencial",
       exp3_desc: "Atención al cliente en un entorno 100% en inglés, dentro de un equipo multicultural — organización, rapidez y resolución bajo presión.",
       proj_eyebrow: "Mi trabajo",
       proj_title: "Proyecto destacado",
@@ -527,6 +627,34 @@
       alum_li3: "<strong>Backend en CodeIgniter (PHP)</strong> con frontend en Vue.js, pensado para uso municipal real.",
       cald_tag: "Proyecto final · Coderhouse",
       cald_desc: "Sitio web de un café-librería mágico ficticio inspirado en Harry Potter: carta, agenda de eventos, sección institucional y contacto. Proyecto final del curso de Desarrollo Web.",
+      edu_title: "Formación",
+      edu1_role: "Bachiller en Economía y Administración",
+      edu1_co: "E.E.S. Orientada Particular Incorporada N.º 8095",
+      edu2_role: "Inglés",
+      edu3_role: "Desarrollo web y tecnología",
+      edu3_when: "2026 — Actualidad",
+      edu4_role: "Ingeniería en Sistemas de Información",
+      cert_title: "Certificados",
+      cert1_when: "dic. 2020",
+      cert1_title: "Título secundario — Bachiller en Economía y Administración",
+      cert2_when: "dic. 2022",
+      cert2_title: "Inglés Elementary Part 1",
+      cert3_when: "dic. 2023",
+      cert3_title: "Inglés Elementary Part 2",
+      cert4_when: "dic. 2024",
+      cert4_title: "Inglés Intermediate Part 1",
+      cert5_when: "dic. 2025",
+      cert5_title: "Inglés Intermediate",
+      cert6_when: "ago. 2026",
+      cert6_title: "Desarrollo Web",
+      cert7_when: "oct. 2026",
+      cert7_title: "JavaScript",
+      pedido_tag: "Proyecto final · JavaScript",
+      pedido_desc: "Simulador de pedido para un café-librería ficticio. Es la entrega final de JavaScript en Coderhouse: ver la carta, elegir productos, modificar cantidades, calcular el total y confirmar el pedido.",
+      pedido_alt: "Simulador de Pedido — El Caldero Chorreante",
+      mesa_tag: "React",
+      mesa_desc: "Aplicación web para armar el set de un recital antes de subir al escenario. Ordenás los temas, la app suma el tiempo del venue, marca los saltos largos de tonalidad y dibuja la curva de energía.",
+      mesa_alt: "Mesa de Show",
       cald_link: "Sitio en producción ↗",
       skills_eyebrow: "Stack",
       skills_title: "Tecnologías y herramientas",
@@ -555,6 +683,7 @@
       menu_aria: "Open menu",
       nav_about: "About",
       nav_experience: "Experience",
+      nav_edu: "Education",
       nav_projects: "Projects",
       nav_skills: "Skills",
       nav_contact: "Contact",
@@ -578,11 +707,12 @@
       exp_eyebrow: "Career",
       exp_title: "Experience and education",
       exp1_role: "Full Stack Developer",
-      exp1_loc: "Mexico",
+      exp1_loc: "Mexico · Remote",
+      exp2_loc: "San Francisco, Córdoba · Remote",
       exp1_desc: "Development of web and mobile apps for international clients, under agile methods (Scrum/Jira), taking part in the full cycle: requirements, implementation, and follow-up.",
       exp2_role: "Full Stack Developer",
       exp2_desc: "Refactoring and optimization of a WordPress site: new features, UX/UI improvements, and frontend and backend bug fixes.",
-      exp3_loc: "United States",
+      exp3_loc: "Idaho Springs, Colorado · On-site",
       exp3_desc: "Customer service in a fully English-speaking environment, within a multicultural team — organization, speed, and problem-solving under pressure.",
       proj_eyebrow: "My work",
       proj_title: "Featured project",
@@ -599,6 +729,34 @@
       alum_li3: "<strong>CodeIgniter (PHP) backend</strong> with a Vue.js frontend, built for real municipal use.",
       cald_tag: "Final project · Coderhouse",
       cald_desc: "Website for a fictional magic café-bookstore inspired by Harry Potter: menu, events calendar, about section, and contact. Final project for the Web Development course.",
+      edu_title: "Education",
+      edu1_role: "High school diploma in Economics and Administration",
+      edu1_co: "E.E.S. Orientada Particular Incorporada N.º 8095",
+      edu2_role: "English",
+      edu3_role: "Web development and technology",
+      edu3_when: "2026 — Present",
+      edu4_role: "Information Systems Engineering",
+      cert_title: "Certificates",
+      cert1_when: "Dec 2020",
+      cert1_title: "High school diploma — Economics and Administration",
+      cert2_when: "Dec 2022",
+      cert2_title: "English Elementary Part 1",
+      cert3_when: "Dec 2023",
+      cert3_title: "English Elementary Part 2",
+      cert4_when: "Dec 2024",
+      cert4_title: "English Intermediate Part 1",
+      cert5_when: "Dec 2025",
+      cert5_title: "English Intermediate",
+      cert6_when: "Aug 2026",
+      cert6_title: "Web Development",
+      cert7_when: "Oct 2026",
+      cert7_title: "JavaScript",
+      pedido_tag: "Final project · JavaScript",
+      pedido_desc: "Order simulator for a fictional café-bookstore. Final JavaScript project at Coderhouse: browse the menu, pick products, change quantities, calculate the total, and confirm the order.",
+      pedido_alt: "Order simulator — El Caldero Chorreante",
+      mesa_tag: "React",
+      mesa_desc: "Web app for building a concert setlist before going on stage. It orders the songs, adds up the venue time, flags long key changes, and draws the energy curve.",
+      mesa_alt: "Mesa de Show",
       cald_link: "Live site ↗",
       skills_eyebrow: "Stack",
       skills_title: "Technologies and tools",
