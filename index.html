@@ -130,6 +130,9 @@
   .exp-desc{color:var(--dim);font-size:14px;}
   .block-title{font-family:'Sora',sans-serif;font-size:22px;font-weight:700;text-align:center;margin:72px 0 28px;}
   .edu-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;}
+  .edu-head{display:flex;align-items:center;gap:14px;}
+  .edu-logo{width:52px;height:52px;flex-shrink:0;border-radius:12px;background:#fff;display:flex;align-items:center;justify-content:center;padding:5px;overflow:hidden;}
+  .edu-logo img{width:100%;height:100%;object-fit:contain;}
   .cert-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
   .cert-card{border:1px solid var(--border);background:var(--card);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:8px;}
   .cert-card .exp-role{font-size:15px;}
@@ -298,21 +301,30 @@
 
         <div class="exp-card">
           <div class="exp-date mono">DIC 2025 — ABR 2026</div>
-          <div><div class="exp-role">General Crew</div><div class="exp-co">McDonald's</div></div>
+          <div class="edu-head">
+            <div class="edu-logo"><img src="./assets/logos-experiencia/logo-mcdonalds.jpg" alt=""></div>
+            <div><div class="exp-role">General Crew</div><div class="exp-co">McDonald's</div></div>
+          </div>
           <div class="exp-loc" data-i18n="exp3_loc">Idaho Springs, Colorado · Presencial</div>
           <div class="exp-desc" data-i18n="exp3_desc">Atención al cliente en un entorno 100% en inglés, dentro de un equipo multicultural — organización, rapidez y resolución bajo presión.</div>
         </div>
 
         <div class="exp-card">
           <div class="exp-date mono">DIC 2024 — DIC 2025</div>
-          <div><div class="exp-role" data-i18n="exp2_role">Desarrollador Full Stack</div><div class="exp-co">DiarioSports</div></div>
+          <div class="edu-head">
+            <div class="edu-logo"><img src="./assets/logos-experiencia/logo-diariosports.jpg" alt=""></div>
+            <div><div class="exp-role" data-i18n="exp2_role">Desarrollador Full Stack</div><div class="exp-co">DiarioSports</div></div>
+          </div>
           <div class="exp-loc" data-i18n="exp2_loc">San Francisco, Córdoba · En remoto</div>
           <div class="exp-desc" data-i18n="exp2_desc">Refactorización y optimización de un sitio en WordPress: nuevas funcionalidades, mejoras de UX/UI y resolución de errores en frontend y backend.</div>
         </div>
 
         <div class="exp-card">
           <div class="exp-date mono">JUN 2024 — JUN 2025</div>
-          <div><div class="exp-role" data-i18n="exp1_role">Desarrollador Full Stack</div><div class="exp-co">TINegocios</div></div>
+          <div class="edu-head">
+            <div class="edu-logo"><img src="./assets/logos-experiencia/logo-tinegocios.jpg" alt=""></div>
+            <div><div class="exp-role" data-i18n="exp1_role">Desarrollador Full Stack</div><div class="exp-co">TINegocios</div></div>
+          </div>
           <div class="exp-loc" data-i18n="exp1_loc">México · En remoto</div>
           <div class="exp-desc" data-i18n="exp1_desc">Desarrollo de apps web y móviles para clientes extranjeros, bajo metodologías ágiles (Scrum/Jira), participando en todo el ciclo: requerimientos, implementación y seguimiento.</div>
         </div>
@@ -323,19 +335,31 @@
       <div class="edu-grid">
         <div class="exp-card">
           <div class="exp-date mono">2016 — 2020</div>
-          <div><div class="exp-role" data-i18n="edu1_role">Bachiller en Economía y Administración</div><div class="exp-co" data-i18n="edu1_co">E.E.S. Orientada Particular Incorporada N.º 8095</div></div>
+          <div class="edu-head">
+            <div class="edu-logo"><img src="./assets/logos-formacion/logo-secundario.jpg" alt=""></div>
+            <div><div class="exp-role" data-i18n="edu1_role">Bachiller en Economía y Administración</div><div class="exp-co" data-i18n="edu1_co">E.E.S. Orientada Particular Incorporada N.º 8095</div></div>
+          </div>
         </div>
         <div class="exp-card">
           <div class="exp-date mono">2022 — 2025</div>
-          <div><div class="exp-role" data-i18n="edu2_role">Inglés</div><div class="exp-co">Sky English Institute</div></div>
+          <div class="edu-head">
+            <div class="edu-logo"><img src="./assets/logos-formacion/logo-skyenglish.jpg" alt=""></div>
+            <div><div class="exp-role" data-i18n="edu2_role">Inglés</div><div class="exp-co">Sky English Institute</div></div>
+          </div>
         </div>
         <div class="exp-card">
           <div class="exp-date mono" data-i18n="edu3_when">2026 — Actualidad</div>
-          <div><div class="exp-role" data-i18n="edu3_role">Desarrollo web y tecnología</div><div class="exp-co">Coderhouse</div></div>
+          <div class="edu-head">
+            <div class="edu-logo"><img src="./assets/logos-formacion/logo-coderhouse.jpg" alt=""></div>
+            <div><div class="exp-role" data-i18n="edu3_role">Desarrollo web y tecnología</div><div class="exp-co">Coderhouse</div></div>
+          </div>
         </div>
         <div class="exp-card">
           <div class="exp-date mono">2021 — 2026</div>
-          <div><div class="exp-role" data-i18n="edu4_role">Ingeniería en Sistemas de Información</div><div class="exp-co">Universidad Tecnológica Nacional</div></div>
+          <div class="edu-head">
+            <div class="edu-logo"><img src="./assets/logos-formacion/logo-utn.jpg" alt=""></div>
+            <div><div class="exp-role" data-i18n="edu4_role">Ingeniería en Sistemas de Información</div><div class="exp-co">Universidad Tecnológica Nacional</div></div>
+          </div>
         </div>
       </div>
 
