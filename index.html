@@ -133,6 +133,12 @@
   .cert-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
   .cert-card{border:1px solid var(--border);background:var(--card);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:8px;}
   .cert-card .exp-role{font-size:15px;}
+  .cert-link{
+    margin-top:auto;align-self:flex-start;font-size:12.5px;font-weight:600;color:var(--cyan);
+    border:1px solid var(--border);border-radius:100px;padding:6px 12px;
+    transition:border-color .15s, color .15s;
+  }
+  .cert-link:hover{border-color:var(--cyan);color:var(--text);}
 
   .feat-card{border:1px solid var(--border);background:linear-gradient(180deg, var(--card), var(--bg-soft));border-radius:24px;overflow:hidden;}
   .feat-media{aspect-ratio:16/9;background:var(--card-2);border-bottom:1px solid var(--border);position:relative;overflow:hidden;}
@@ -339,36 +345,43 @@
           <div class="exp-date mono" data-i18n="cert1_when">dic. 2020</div>
           <div class="exp-role" data-i18n="cert1_title">Título secundario — Bachiller en Economía y Administración</div>
           <div class="exp-co" data-i18n="edu1_co">E.E.S. Orientada Particular Incorporada N.º 8095</div>
+          <a class="cert-link" href="./assets/titulos/T%C3%ADtulo%20Secundario%20-%20Agust%C3%ADn%20Farber.pdf" target="_blank" rel="noopener" data-i18n="cert_view">Ver certificado</a>
         </div>
         <div class="cert-card">
           <div class="exp-date mono" data-i18n="cert2_when">dic. 2022</div>
           <div class="exp-role" data-i18n="cert2_title">Inglés Elementary Part 1</div>
           <div class="exp-co">Sky English Institute</div>
+          <a class="cert-link" href="./assets/titulos/Sky%20English%20Institute%20-%202022.jpg" target="_blank" rel="noopener" data-i18n="cert_view">Ver certificado</a>
         </div>
         <div class="cert-card">
           <div class="exp-date mono" data-i18n="cert3_when">dic. 2023</div>
           <div class="exp-role" data-i18n="cert3_title">Inglés Elementary Part 2</div>
           <div class="exp-co">Sky English Institute</div>
+          <a class="cert-link" href="./assets/titulos/Sky%20English%20Institute%20-%202023.jpg" target="_blank" rel="noopener" data-i18n="cert_view">Ver certificado</a>
         </div>
         <div class="cert-card">
           <div class="exp-date mono" data-i18n="cert4_when">dic. 2024</div>
           <div class="exp-role" data-i18n="cert4_title">Inglés Intermediate Part 1</div>
           <div class="exp-co">Sky English Institute</div>
+          <a class="cert-link" href="./assets/titulos/Sky%20English%20Institute%20-%202024.jpg" target="_blank" rel="noopener" data-i18n="cert_view">Ver certificado</a>
         </div>
         <div class="cert-card">
           <div class="exp-date mono" data-i18n="cert5_when">dic. 2025</div>
           <div class="exp-role" data-i18n="cert5_title">Inglés Intermediate</div>
           <div class="exp-co">Sky English Institute</div>
+          <a class="cert-link" href="./assets/titulos/Sky%20English%20Institute%20-%202025.jpg" target="_blank" rel="noopener" data-i18n="cert_view">Ver certificado</a>
         </div>
         <div class="cert-card">
           <div class="exp-date mono" data-i18n="cert6_when">ago. 2026</div>
           <div class="exp-role" data-i18n="cert6_title">Desarrollo Web</div>
           <div class="exp-co">Coderhouse</div>
+          <a class="cert-link" href="./assets/titulos/AgustinFarber_Certificado_DesarrolloWeb_Coderhouse.pdf" target="_blank" rel="noopener" data-i18n="cert_view">Ver certificado</a>
         </div>
         <div class="cert-card">
           <div class="exp-date mono" data-i18n="cert7_when">oct. 2026</div>
           <div class="exp-role" data-i18n="cert7_title">JavaScript</div>
           <div class="exp-co">Coderhouse</div>
+          <a class="cert-link" href="./assets/titulos/AgustinFarber_Certificado_JavaScript_Coderhouse.pdf" target="_blank" rel="noopener" data-i18n="cert_view">Ver certificado</a>
         </div>
       </div>
     </div>
@@ -638,6 +651,7 @@
       edu3_when: "2026 — Actualidad",
       edu4_role: "Ingeniería en Sistemas de Información",
       cert_title: "Certificados",
+      cert_view: "Ver certificado",
       cert1_when: "dic. 2020",
       cert1_title: "Título secundario — Bachiller en Economía y Administración",
       cert2_when: "dic. 2022",
@@ -740,6 +754,7 @@
       edu3_when: "2026 — Present",
       edu4_role: "Information Systems Engineering",
       cert_title: "Certificates",
+      cert_view: "View certificate",
       cert1_when: "Dec 2020",
       cert1_title: "High school diploma — Economics and Administration",
       cert2_when: "Dec 2022",
