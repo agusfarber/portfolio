@@ -145,6 +145,7 @@
   .cert-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
   .cert-card{border:1px solid var(--border);background:var(--card);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:8px;}
   .cert-card .exp-role{font-size:15px;}
+  .cert-card .edu-logo{width:40px;height:40px;border-radius:10px;}
   .cert-link{
     margin-top:auto;align-self:flex-start;width:fit-content;font-size:13px;color:var(--cyan);
     border-bottom:1px solid transparent;transition:border-color .15s;
@@ -347,32 +348,20 @@
       </div>
       <div class="edu-grid">
         <div class="exp-card">
-          <div class="exp-date mono">2016 — 2020</div>
-          <div class="edu-head">
-            <div class="edu-logo"><img src="./assets/logos-formacion/logo-secundario.jpg" alt=""></div>
-            <div><div class="exp-role" data-i18n="edu1_role">Bachiller en Economía y Administración</div><div class="exp-co" data-i18n="edu1_co">E.E.S. Orientada Particular Incorporada N.º 8095</div></div>
-          </div>
-        </div>
-        <div class="exp-card">
-          <div class="exp-date mono">2022 — 2025</div>
-          <div class="edu-head">
-            <div class="edu-logo"><img src="./assets/logos-formacion/logo-skyenglish.jpg" alt=""></div>
-            <div><div class="exp-role" data-i18n="edu2_role">Inglés</div><div class="exp-co">Sky English Institute</div></div>
-          </div>
-        </div>
-        <div class="exp-card">
-          <div class="exp-date mono" data-i18n="edu3_when">2026 — Actualidad</div>
-          <div class="edu-head">
-            <div class="edu-logo"><img src="./assets/logos-formacion/logo-coderhouse.jpg" alt=""></div>
-            <div><div class="exp-role" data-i18n="edu3_role">Desarrollo web y tecnología</div><div class="exp-co">Coderhouse</div></div>
-          </div>
-        </div>
-        <div class="exp-card">
           <div class="exp-date mono">2021 — 2026</div>
           <div class="edu-head">
             <div class="edu-logo"><img src="./assets/logos-formacion/logo-utn.jpg" alt=""></div>
             <div><div class="exp-role" data-i18n="edu4_role">Ingeniería en Sistemas de Información</div><div class="exp-co">Universidad Tecnológica Nacional</div></div>
           </div>
+        </div>
+        <div class="exp-card">
+          <div class="exp-date mono">2016 — 2020</div>
+          <div class="edu-head">
+            <div class="edu-logo"><img src="./assets/logos-formacion/logo-secundario.jpg" alt=""></div>
+            <div><div class="exp-role" data-i18n="edu1_role">Bachiller en Economía y Administración</div><div class="exp-co" data-i18n="edu1_co">E.E.S. Orientada Particular Incorporada N.º 8095</div></div>
+          </div>
+          <div class="exp-desc" data-i18n="edu1_desc">Título de educación secundaria obtenido en la provincia de Santa Fe, Argentina. Expedido en dic. de 2020.</div>
+          <a class="cert-link" href="./assets/titulos/T%C3%ADtulo%20Secundario%20-%20Agust%C3%ADn%20Farber.pdf" target="_blank" rel="noopener" data-i18n="edu1_view">Título ↗</a>
         </div>
       </div>
 
@@ -382,45 +371,36 @@
       </div>
       <div class="cert-grid">
         <div class="cert-card">
-          <div class="exp-date mono" data-i18n="cert1_when">dic. 2020</div>
-          <div class="exp-role" data-i18n="cert1_title">Título secundario — Bachiller en Economía y Administración</div>
-          <div class="exp-co" data-i18n="edu1_co">E.E.S. Orientada Particular Incorporada N.º 8095</div>
-          <a class="cert-link" href="./assets/titulos/T%C3%ADtulo%20Secundario%20-%20Agust%C3%ADn%20Farber.pdf" target="_blank" rel="noopener" data-i18n="cert_view">Certificado ↗</a>
-        </div>
-        <div class="cert-card">
-          <div class="exp-date mono" data-i18n="cert2_when">dic. 2022</div>
-          <div class="exp-role" data-i18n="cert2_title">Inglés Elementary Part 1</div>
-          <div class="exp-co">Sky English Institute</div>
-          <a class="cert-link" href="./assets/titulos/Sky%20English%20Institute%20-%202022.jpg" target="_blank" rel="noopener" data-i18n="cert_view">Certificado ↗</a>
-        </div>
-        <div class="cert-card">
-          <div class="exp-date mono" data-i18n="cert3_when">dic. 2023</div>
-          <div class="exp-role" data-i18n="cert3_title">Inglés Elementary Part 2</div>
-          <div class="exp-co">Sky English Institute</div>
-          <a class="cert-link" href="./assets/titulos/Sky%20English%20Institute%20-%202023.jpg" target="_blank" rel="noopener" data-i18n="cert_view">Certificado ↗</a>
-        </div>
-        <div class="cert-card">
-          <div class="exp-date mono" data-i18n="cert4_when">dic. 2024</div>
-          <div class="exp-role" data-i18n="cert4_title">Inglés Intermediate Part 1</div>
-          <div class="exp-co">Sky English Institute</div>
-          <a class="cert-link" href="./assets/titulos/Sky%20English%20Institute%20-%202024.jpg" target="_blank" rel="noopener" data-i18n="cert_view">Certificado ↗</a>
-        </div>
-        <div class="cert-card">
           <div class="exp-date mono" data-i18n="cert5_when">dic. 2025</div>
-          <div class="exp-role" data-i18n="cert5_title">Inglés Intermediate</div>
-          <div class="exp-co">Sky English Institute</div>
+          <div class="edu-head">
+            <div class="edu-logo"><img src="./assets/logos-formacion/logo-skyenglish.jpg" alt=""></div>
+            <div>
+              <div class="exp-role" data-i18n="cert5_title">Inglés Intermediate</div>
+              <div class="exp-co">Sky English Institute</div>
+            </div>
+          </div>
           <a class="cert-link" href="./assets/titulos/Sky%20English%20Institute%20-%202025.jpg" target="_blank" rel="noopener" data-i18n="cert_view">Certificado ↗</a>
         </div>
         <div class="cert-card">
           <div class="exp-date mono" data-i18n="cert6_when">ago. 2026</div>
-          <div class="exp-role" data-i18n="cert6_title">Desarrollo Web</div>
-          <div class="exp-co">Coderhouse</div>
+          <div class="edu-head">
+            <div class="edu-logo"><img src="./assets/logos-formacion/logo-coderhouse.jpg" alt=""></div>
+            <div>
+              <div class="exp-role" data-i18n="cert6_title">Desarrollo Web</div>
+              <div class="exp-co">Coderhouse</div>
+            </div>
+          </div>
           <a class="cert-link" href="./assets/titulos/AgustinFarber_Certificado_DesarrolloWeb_Coderhouse.pdf" target="_blank" rel="noopener" data-i18n="cert_view">Certificado ↗</a>
         </div>
         <div class="cert-card">
           <div class="exp-date mono" data-i18n="cert7_when">oct. 2026</div>
-          <div class="exp-role" data-i18n="cert7_title">JavaScript</div>
-          <div class="exp-co">Coderhouse</div>
+          <div class="edu-head">
+            <div class="edu-logo"><img src="./assets/logos-formacion/logo-coderhouse.jpg" alt=""></div>
+            <div>
+              <div class="exp-role" data-i18n="cert7_title">JavaScript</div>
+              <div class="exp-co">Coderhouse</div>
+            </div>
+          </div>
           <a class="cert-link" href="./assets/titulos/AgustinFarber_Certificado_JavaScript_Coderhouse.pdf" target="_blank" rel="noopener" data-i18n="cert_view">Certificado ↗</a>
         </div>
       </div>
@@ -689,20 +669,11 @@
       edu_title: "Formación",
       edu1_role: "Bachiller en Economía y Administración",
       edu1_co: "E.E.S. Orientada Particular Incorporada N.º 8095",
-      edu2_role: "Inglés",
-      edu3_role: "Desarrollo web y tecnología",
-      edu3_when: "2026 — Actualidad",
+      edu1_desc: "Título de educación secundaria obtenido en la provincia de Santa Fe, Argentina. Expedido en dic. de 2020.",
+      edu1_view: "Título ↗",
       edu4_role: "Ingeniería en Sistemas de Información",
       cert_title: "Certificados",
       cert_view: "Certificado ↗",
-      cert1_when: "dic. 2020",
-      cert1_title: "Título secundario — Bachiller en Economía y Administración",
-      cert2_when: "dic. 2022",
-      cert2_title: "Inglés Elementary Part 1",
-      cert3_when: "dic. 2023",
-      cert3_title: "Inglés Elementary Part 2",
-      cert4_when: "dic. 2024",
-      cert4_title: "Inglés Intermediate Part 1",
       cert5_when: "dic. 2025",
       cert5_title: "Inglés Intermediate",
       cert6_when: "ago. 2026",
@@ -792,20 +763,11 @@
       edu_title: "Education",
       edu1_role: "High school diploma in Economics and Administration",
       edu1_co: "E.E.S. Orientada Particular Incorporada N.º 8095",
-      edu2_role: "English",
-      edu3_role: "Web development and technology",
-      edu3_when: "2026 — Present",
+      edu1_desc: "High school diploma earned in the province of Santa Fe, Argentina. Issued Dec 2020.",
+      edu1_view: "Diploma ↗",
       edu4_role: "Information Systems Engineering",
       cert_title: "Certificates",
       cert_view: "Certificate ↗",
-      cert1_when: "Dec 2020",
-      cert1_title: "High school diploma — Economics and Administration",
-      cert2_when: "Dec 2022",
-      cert2_title: "English Elementary Part 1",
-      cert3_when: "Dec 2023",
-      cert3_title: "English Elementary Part 2",
-      cert4_when: "Dec 2024",
-      cert4_title: "English Intermediate Part 1",
       cert5_when: "Dec 2025",
       cert5_title: "English Intermediate",
       cert6_when: "Aug 2026",
